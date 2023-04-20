@@ -9,7 +9,8 @@
 <ion-content [fullscreen]="true">
   <ion-item *ngFor="let cliente of listaClientes">
     <ion-label>
-      {{cliente.email}}
+      {{cliente.nome}}
     </ion-label>
+    <a>{{cliente.email}}</a>
   </ion-item>
 </ion-content>
