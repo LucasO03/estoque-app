@@ -21,7 +21,7 @@ export class HomePage {
 
   buscarClientes() {
     this.clientesService.getAll().subscribe((dados) => {
-      this.listaClientes = dados as Cliente[];
+      this.listaClientes = dados;
     });
   }
 }
