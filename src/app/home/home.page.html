@@ -7,10 +7,17 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <ion-item *ngFor="let cliente of listaClientes">
     <ion-label>
-      {{cliente.nome}}
+      <h1>{{cliente.nome}}</h1>
+      <p>{{cliente.email}}</p>
     </ion-label>
-    <a>{{cliente.email}}</a>
+
   </ion-item>
+
+  <ion-button routerLink="/create-cliente"> 
+    Adicionar Cliente
+  </ion-button>
+
 </ion-content>

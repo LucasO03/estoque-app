@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastro de Cliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+ <ion-card>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Nome: " [(ngModel)]="nome"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="email" label="Email:" [(ngModel)]="email" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="password" label="Senha: " [(ngModel)]="senha"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="password" label="Confirme sua senha:" [(ngModel)] = "confirmeSenha"></ion-input>
+  </ion-item>
+
+ </ion-card>
+
+  <ion-button expand="block">
+    Adicionar
+  </ion-button>
+
+</ion-content>

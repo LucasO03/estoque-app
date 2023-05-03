@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http'
 import { Cliente } from '../models/Cliente.model';
 import { catchError, EMPTY, map, Observable } from 'rxjs';
+
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -9,39 +11,51 @@ import { catchError, EMPTY, map, Observable } from 'rxjs';
 export class ClientesService {
   url = 'http://localhost:3000/clientes';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private alertController: AlertController) { }
 
-  create(cliente: Cliente) {
-    return this.http.post(this.url, cliente)
+  create (cliente: Cliente){
+    return this.http.post(this.url, cliente);
   }
 
-  getAll(): Observable<Cliente[]> {
+  getAll ():Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.url).pipe(
-      map((retorno) => retorno),
-      catchError((erro) => this.exibirErro(erro))
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
     );
   }
 
-  getOne(id: number) {
-    // return this.http.get(this.url + '/' + id);
+  getOne (id:Number){
+   // return this.http.get(this.url + '/' + id);
     return this.http.get(`${this.url}/${id}`);
   }
 
-  update(cliente: Cliente) {
+  update (cliente: Cliente){
     return this.http.put(`${this.url}/${cliente.id}`, cliente);
   }
 
-  delete(id: number) {
+  delete (id: number){
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  login() {}
-
   logout() {}
 
-  exibirErro(erro: any): Observable<any> {
-    alert('Deu erro!');
-    console.log(erro);
+  logout (){}
+
+  exibirErro(erro: any):Observable<any>{
+    const titulo = `Erro na conexão!`;
+    const msg = `verifique sua conexão \n ou \n Informe esse erro ao suporte ${erro.status}`; 
+    this.presentAlert(titulo, msg);
     return EMPTY;
   }
+
+  async presentAlert(titulo: string, msg: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: msg,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
 }
