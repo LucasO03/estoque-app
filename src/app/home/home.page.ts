@@ -1,7 +1,6 @@
 import { ClientesService } from './../services/clientes.service';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { ClientesService } from '../services/clientes.service';
 import { Cliente } from '../models/Cliente.model';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';

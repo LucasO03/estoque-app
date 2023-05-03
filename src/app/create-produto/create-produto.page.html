@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Cadastro de Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+ <ion-card>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Título: " [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Descrição:" [(ngModel)]="descricao" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="integer" label="Preço: " [(ngModel)]="preco"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input labelPlacement="floating" type="text" label="Imagem:" [(ngModel)]="nome_Imagem"></ion-input>
+  </ion-item>
+
+ </ion-card>
+
+  <ion-button expand="block" (click)="salvar()">
+    Adicionar
+  </ion-button>
+
+</ion-content>
