@@ -18,6 +18,9 @@ export class ListaProdutosPage implements OnInit {
   listaProdutos: Produto[] = []
 
   constructor(private produtosService: ProdutosService) {
+  }
+
+  ionViewWillEnter(){
     this.buscarProdutos();
   }
 
