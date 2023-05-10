@@ -4,30 +4,48 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content [fullscreen]="true">
 
- <ion-card>
+  <ion-card>
 
-  <ion-item>
-    <ion-input labelPlacement="floating" type="text" label="Nome: " [(ngModel)]="nome"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text" label="Nome: " [(ngModel)]="nome"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input labelPlacement="floating" type="email" label="Email:" [(ngModel)]="email" ></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="email" label="Email:" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input labelPlacement="floating" type="password" label="Senha: " [(ngModel)]="senha"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="password" label="Senha: " [(ngModel)]="senha"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-input labelPlacement="floating" type="password" label="Confirme sua senha:" [(ngModel)] = "confirmeSenha"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="password" label="Confirme sua senha:" [(ngModel)]="confirmeSenha">
+      </ion-input>
+    </ion-item>
 
- </ion-card>
+  </ion-card>
 
-  <ion-button expand="block" (click)="salvar()">
-    Adicionar
-  </ion-button>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <div>
+          <ion-button expand="block" (click)="salvar()" color="dark">
+            Adicionar
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="3">
+        <div>
+          <ion-button routerLink="/home" color="dark" position="center">
+            Home
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

@@ -20,23 +20,23 @@ export class ListaProdutosPage implements OnInit {
   constructor(private produtosService: ProdutosService, private router: Router) {
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.buscarProdutos();
   }
 
   ngOnInit() {
   }
 
-  buscarProdutos(){
+  buscarProdutos() {
     this.produtosService.getAll().subscribe(dados => {
       this.listaProdutos = dados as Produto[];
     });
   }
 
-  alterarProduto(id: number){
+  alterarProduto(id: number) {
     this.router.navigateByUrl(`/alterar-produto/${id}`)
   }
 
-  excluirProduto(id: number){}
+  excluirProduto(id: number) { }
 
 }

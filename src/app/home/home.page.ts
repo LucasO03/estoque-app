@@ -19,22 +19,22 @@ export class HomePage {
   constructor(private clientesService: ClientesService, private router: Router) {
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.buscarClientes();
   }
 
   buscarClientes() {
     this.clientesService.getAll().subscribe(dados => {
-        this.listaClientes = dados;
+      this.listaClientes = dados;
     });
   }
 
-  alterarCliente(id: number){
+  alterarCliente(id: number) {
     this.router.navigateByUrl(`/alterar-cliente/${id}`)
   }
 
-  excluirCliente(id: number){
-   
+  excluirCliente(id: number) {
+
   }
 
 

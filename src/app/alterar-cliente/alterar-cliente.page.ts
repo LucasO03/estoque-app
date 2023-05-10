@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ClientesService } from '../services/clientes.service';
 import { Cliente } from '../models/Cliente.model';
 
@@ -11,7 +11,7 @@ import { Cliente } from '../models/Cliente.model';
   templateUrl: './alterar-cliente.page.html',
   styleUrls: ['./alterar-cliente.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class AlterarClientePage implements OnInit {
 
@@ -19,7 +19,7 @@ export class AlterarClientePage implements OnInit {
   nome = '';
   email = '';
   senha = '';
-  confirmeSenha ='';
+  confirmeSenha = '';
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private clienteService: ClientesService) { }
 
@@ -33,8 +33,8 @@ export class AlterarClientePage implements OnInit {
     })
   }
 
-  salvar(){
-    if(this.senha === this.confirmeSenha){
+  salvar() {
+    if (this.senha === this.confirmeSenha) {
       const cliente: Cliente = {
         id: this.id,
         nome: this.nome,
@@ -45,11 +45,11 @@ export class AlterarClientePage implements OnInit {
         alert("Cliente atualizado com sucesso " + dados.id)
         this.router.navigateByUrl('/home');
       })
-    }else{
+    } else {
       alert("Senhas nao conferem!")
     }
   }
 
- 
+
 
 }

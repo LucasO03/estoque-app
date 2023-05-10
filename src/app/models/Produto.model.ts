@@ -3,5 +3,5 @@ export class Produto{
   titulo: string | undefined;
   descricao: string | undefined;
   preco: number | undefined;
-  nome_imagem: string | undefined;
+  nome_imagem?: string | undefined;
 }

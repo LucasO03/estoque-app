@@ -14,18 +14,34 @@
     </ion-label>
 
 
-    <ion-button color="warning"  (click)="alterarProduto(produto.id!)">
+    <ion-button color="warning" (click)="alterarProduto(produto.id!)">
       <ion-icon slot="icon-only" name="create-outline"></ion-icon>
     </ion-button>
 
-    <ion-button color="danger" (click)="excluirProduto(produto.id!)" >
+    <ion-button color="danger" (click)="excluirProduto(produto.id!)">
       <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
     </ion-button>
 
   </ion-item>
 
-  <ion-button routerLink="/create-produto"> 
-    Adicionar Produto
-  </ion-button>
-
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <div>
+          <ion-button routerLink="/create-produto" color="dark">
+            Adicionar Produto
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col>
+        <div>
+          <ion-button routerLink="/home" color="dark">
+            Home
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

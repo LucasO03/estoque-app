@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ProdutosService } from '../services/produtos.service';
 import { Produto } from '../models/Produto.Model';
 
@@ -11,20 +11,20 @@ import { Produto } from '../models/Produto.Model';
   templateUrl: './create-produto.page.html',
   styleUrls: ['./create-produto.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
 export class CreateProdutoPage implements OnInit {
 
-  titulo ='';
-  descricao ='';
+  titulo = '';
+  descricao = '';
   preco = 0;
 
-  constructor(private router: Router, private produtoService: ProdutosService ) { }
+  constructor(private router: Router, private produtoService: ProdutosService) { }
 
   ngOnInit() {
   }
 
-  salvar(){
+  salvar() {
     const produto: Produto = {
       titulo: this.titulo,
       descricao: this.descricao,
