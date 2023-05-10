@@ -15,10 +15,10 @@ import { Produto } from '../models/Produto.Model';
 })
 export class AlterarProdutoPage implements OnInit {
 
-  id= 0;
-  titulo='';
-  descricao='';
-  preco=0;
+  id = 0;
+  titulo = '';
+  descricao = '';
+  preco = 0;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private produtoService: ProdutosService) { }
 
@@ -32,7 +32,7 @@ export class AlterarProdutoPage implements OnInit {
     })
   }
 
-  salvar(){
+  salvar() {
     const produto: Produto = {
       id: this.id,
       titulo: this.titulo,
