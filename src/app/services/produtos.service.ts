@@ -20,13 +20,13 @@ export class ProdutosService {
     return this.http.get<Produto[]>(this.url);
   }
 
-  getOne (id: number){
+  getOne (id: number): Observable<Produto>{
    // return this.http.get(this.url + '/' + id);
-    return this.http.get(`${this.url}/${id}`);
+    return this.http.get<Produto>(`${this.url}/${id}`);
   }
 
-  update (produto: Produto){
-    return this.http.put(`${this.url}/${produto.id}`, produto);
+  update (produto: Produto): Observable<Produto>{
+    return this.http.put<Produto>(`${this.url}/${produto.id}`, produto);
   }
 
   delete (id: number){

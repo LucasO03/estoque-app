@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { Produto } from '../models/Produto.Model';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lista-produtos',
@@ -17,7 +17,7 @@ export class ListaProdutosPage implements OnInit {
 
   listaProdutos: Produto[] = []
 
-  constructor(private produtosService: ProdutosService) {
+  constructor(private produtosService: ProdutosService, private router: Router) {
   }
 
   ionViewWillEnter(){
@@ -32,5 +32,11 @@ export class ListaProdutosPage implements OnInit {
       this.listaProdutos = dados as Produto[];
     });
   }
+
+  alterarProduto(id: number){
+    this.router.navigateByUrl(`/alterar-produto/${id}`)
+  }
+
+  excluirProduto(id: number){}
 
 }
