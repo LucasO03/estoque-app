@@ -1,50 +1,55 @@
-import { catchError, map, Observable, EMPTY } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Produto } from '../models/Produto.Model';
 import { HttpClient } from '@angular/common/http';
+import { catchError, EMPTY, map, Observable } from 'rxjs';
+
 import { AlertController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProdutosService {
+
   url = 'http://localhost:3000/produtos';
+ 
+  constructor(private http: HttpClient, private alertController: AlertController ) { }
 
-  constructor(
-    private http: HttpClient,
-    private alertController: AlertController
-  ) {}
-
-  create(produto: Produto) :Observable<Produto>{
+  create (produto: Produto): Observable<Produto>{
     return this.http.post<Produto>(this.url, produto).pipe(
-      map((retorno) => retorno),
-      catchError((erro) => this.exibirErro(erro))
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
     );
   }
 
-  getAll(): Observable<Produto[]> {
+  getAll (): Observable<Produto[]>{
     return this.http.get<Produto[]>(this.url).pipe(
-      map((retorno) => retorno),
-      catchError((erro) => this.exibirErro(erro))
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
     );
   }
 
-  getOne(id: number) {
-    // return this.http.get(this.url + '/' + id);
-    return this.http.get(`${this.url}/${id}`);
+  getOne (id: number): Observable<Produto>{
+   // return this.http.get(this.url + '/' + id);
+    return this.http.get<Produto>(`${this.url}/${id}`).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
   }
 
-  update(produto: Produto) {
-    return this.http.put(`${this.url}/${produto.id}`, produto);
+  update (produto: Produto): Observable<Produto>{
+    return this.http.put<Produto>(`${this.url}/${produto.id}`, produto).pipe(
+      map(retorno => retorno),
+      catchError(erro => this.exibirErro(erro))
+    );
   }
 
-  delete(id: number) {
+  delete (id: number){
     return this.http.delete(`${this.url}/${id}`);
   }
 
-  exibirErro(erro: any): Observable<any> {
+  exibirErro(erro: any):Observable<any>{
     const titulo = `Erro na conexão!`;
-    const msg = `verifique sua conexão \n ou \n Informe esse erro ao suporte ${erro.status}`;
+    const msg = `verifique sua conexão \n ou \n Informe esse erro ao suporte ${erro.status}`; 
     this.presentAlert(titulo, msg);
     return EMPTY;
   }
@@ -58,4 +63,6 @@ export class ProdutosService {
 
     await alert.present();
   }
+
+
 }

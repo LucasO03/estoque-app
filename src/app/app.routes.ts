@@ -7,7 +7,7 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lista-produtos',
     pathMatch: 'full',
   },
   {
@@ -22,5 +22,14 @@ export const routes: Routes = [
     path: 'create-produto',
     loadComponent: () => import('./create-produto/create-produto.page').then( m => m.CreateProdutoPage)
   },
+  {
+    path: 'alterar-cliente/:id',
+    loadComponent: () => import('./alterar-cliente/alterar-cliente.page').then( m => m.AlterarClientePage)
+  },
+  {
+    path: 'alterar-produto/:id',
+    loadComponent: () => import('./alterar-produto/alterar-produto.page').then( m => m.AlterarProdutoPage)
+  },
+
 
 ];
